@@ -331,7 +331,8 @@ def joinClass(memberId):
 def displayDashboard(id):
     while True:
         query = "SELECT * FROM gym_member WHERE user_id = %s"
-        cursor.execute(query, id)
+        data = (id,)
+        cursor.execute(query, data)
         info = cursor.fetchone()
         print("health stats: ")
         print("Height: ", info[11])
