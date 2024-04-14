@@ -12,6 +12,7 @@ Assumptions for the ER diagram:
               Requirement: a user can log in as either a member, trainer, or admin staff.
                Assumption: this means that we can assume that members, trainers, and admin cannot exist without users.
 Representation in diagram: we have a 'must have' participation for user, since without it, we cannot have any participation in the gym system by the way of members, trainers, or admin staff.
+Representation in diagram: we have to create a junction table between members and classes, since we cannot have an array of classes for a single member.
 
               Requirement: gym members can be signed up for multiple classes.
                Assumption: this means that we can assume that we can have multiple class instances for a single member.
