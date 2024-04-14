@@ -266,7 +266,8 @@ def memberLogin():
 def schedule(id):
     while True:
         query = "SELECT member_id FROM gym_member WHERE user_id = %s"
-        cursor.execute(query, id)
+        data = (id,)
+        cursor.execute(query, data)
         memberId = cursor.fetchone()
         memberId = memberId[0]
         query = """SELECT gc.class_id, gc.room_id, gc.trainer_id, gc.class_type, gc.category, gc.start_time, gc.end_time
@@ -362,7 +363,8 @@ def editRoutines(id):
 def profileManagement(id):
     while True: 
         query = "SELECT * FROM gym_member WHERE user_id = %s"
-        cursor.execute(query, id)
+        data = (id,)
+        cursor.execute(query, data)
         info = cursor.fetchone()
         print("1: First Name: ", info[2])
         print("2: Last Name: ", info[3])
@@ -375,7 +377,8 @@ def profileManagement(id):
         print("9: desired number of workouts", info[13])
         print("10: Calories per day burn goal: ", info[14])
         query = "SELECT username, user_password FROM gym_user WHERE user_id = %s"
-        cursor.execute(query, id)
+        data = (id,)
+        cursor.execute(query, data)
         username, password = cursor.fetchone()
         print("11: Username: ", username)
         print("12: Password: ", password)
